@@ -1,0 +1,807 @@
+:root{
+  --bg:#0b0f17;
+  --card:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --line:rgba(255,255,255,.08);
+  --accent:#60a5fa;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(1200px 600px at 20% 0%, rgba(96,165,250,.15), transparent 55%),
+             radial-gradient(900px 500px at 90% 20%, rgba(167,139,250,.10), transparent 55%),
+             var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+a{color:inherit}
+.container{max-width:980px;margin:0 auto;padding:96px 20px 60px}
+
+.site-header{
+  position:sticky;top:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;
+  background:rgba(11,15,23,.7);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.logo{
+  width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;
+  background:rgba(96,165,250,.15);
+  text-decoration:none;
+  font-weight:800;
+}
+.nav{display:flex;gap:16px}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--text)}
+
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:start}
+.eyebrow{color:var(--muted);margin:0}
+h1{font-size:48px;line-height:1.05;margin:10px 0 10px}
+.subtitle{color:var(--muted);margin:0 0 18px}
+.meta{color:var(--muted);margin:18px 0 0;font-size:14px}
+
+.section{margin-top:64px}
+.section-header h2{margin:0 0 8px}
+.section-header p{margin:0;color:var(--muted)}
+
+.card{
+  background:rgba(17,24,39,.75);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+}
+.card-title{margin:0 0 10px;font-size:16px;color:var(--muted);font-weight:600}
+
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.button{
+  background:var(--accent);
+  color:#06121f;
+  text-decoration:none;
+  font-weight:700;
+  padding:10px 14px;
+  border-radius:12px;
+}
+.button.secondary{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--line);
+}
+
+.grid{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:14px;margin-top:18px}
+.project{padding:18px;border-radius:16px;border:1px solid var(--line);background:rgba(17,24,39,.45)}
+.project h3{margin:0 0 6px}
+.project-desc{margin:0 0 12px;color:var(--muted)}
+.tags{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:4px 8px;border-radius:999px}
+.project-links{display:flex;gap:12px}
+.project-links a{color:var(--accent);text-decoration:none}
+.project-links a:hover{text-decoration:underline}
+
+.two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:18px}
+.bullets{margin:0;padding-left:18px;color:var(--muted)}
+
+.footer{margin-top:56px;color:var(--muted);font-size:14px}
+
+@media (max-width: 860px){
+  .hero{grid-template-columns:1fr}
+  h1{font-size:40px}
+  .grid{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr} 
+}/* ===== Accordion (View Portfolio toggle) ===== */
+.case-accordion{
+  margin-top: 14px;
+}
+
+.case-summary-btn{
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.case-summary-btn::-webkit-details-marker{ display:none; }
+
+.case-summary-btn::after{
+  content: "▾";
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.case-accordion[open] .case-summary-btn::after{
+  content: "▴";
+}
+
+.case-content{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+/* Optional: prevent huge gap inside project */
+.case-content .case-heading{
+  margin-top: 16px;
+} /* ===== Accordion (View Portfolio toggle) ===== */
+.case-accordion{
+  margin-top: 14px;
+}
+
+.case-summary-btn{
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.case-summary-btn::-webkit-details-marker{ display:none; }
+
+.case-summary-btn::after{
+  content: "▾";
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.case-accordion[open] .case-summary-btn::after{
+  content: "▴";
+}
+
+.case-content{
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+/* ===== Case visuals ===== */
+.case-cover{
+  margin: 8px 0 16px;
+}
+
+.case-cover img{
+  width: 100%;
+  max-width: 520px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+/* ===== Tables (if not already added) ===== */
+.table-wrap{
+  overflow-x: auto;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(17,24,39,.55);
+}
+
+.perf-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.perf-table th,
+.perf-table td{
+  text-align: left;
+  padding: 12px 12px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: top;
+}
+
+.perf-table thead th{
+  background: rgba(255,255,255,0.04);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.perf-table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+/* ===== Thumbnail grid (controlled size, not huge) ===== */
+.thumb-grid{
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+  justify-content: start;
+}
+
+.thumb-grid--two{
+  grid-template-columns: repeat(2, 220px);
+}
+
+.thumb{
+  display: block;
+}
+
+.thumb img{
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 22px rgba(0,0,0,.28);
+}
+
+.thumb span{
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .thumb-grid--two{
+    grid-template-columns: repeat(2, 160px);
+  }
+  .thumb img{
+    width: 160px;
+    height: 110px;
+  }
+}
+@media (max-width: 420px){
+  .thumb-grid--two{
+    grid-template-columns: 1fr;
+  }
+  .thumb img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}/* HealthyTips: make thumb links look clean */
+.thumb{
+  text-decoration: none;
+  color: inherit;
+}
+.thumb:hover span{
+  color: var(--text);
+}
+/* ===== Reels / vertical thumbnails (HealthyTips) ===== */
+.thumb-grid--reels{
+  grid-template-columns: repeat(4, 140px);
+}
+
+.thumb-grid--reels .thumb img{
+  width: 140px;
+  height: 249px;           /* ~9:16 */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Mobile */
+@media (max-width: 900px){
+  .thumb-grid--reels{ grid-template-columns: repeat(3, 120px); }
+  .thumb-grid--reels .thumb img{ width:120px; height:213px; }
+}
+
+@media (max-width: 600px){
+  .thumb-grid--reels{ grid-template-columns: repeat(2, 140px); }
+}
+
+@media (max-width: 420px){
+  .thumb-grid--reels{ grid-template-columns: 1fr; }
+  .thumb-grid--reels .thumb img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+}/* Single reel alignment */
+.single-reel{
+  display: grid;
+  justify-content: start;
+}
+
+.single-reel .thumb img{
+  width: 170px;
+  height: 302px;
+  object-fit: cover;
+  border-radius: 12px;
+}/* ===== About section polish ===== */
+.two-col{
+  align-items: start;
+}
+
+.two-col > div:first-child{
+  max-width: 560px; /* keeps About readable */
+}
+
+#about .card{
+  position: sticky;
+  top: 84px; /* keeps Skills nicely visible while scrolling */
+}/* ===== Skills card redesign ===== */
+
+.skills-card{
+  padding: 20px;
+}
+
+.skills-heading{
+  margin: 18px 0 8px;
+  font-size: 13px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.skills-chips{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skills-chips li{
+  font-size: 12px;
+  color: var(--text);
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.05);
+  padding: 6px 10px;
+  border-radius: 999px;
+  line-height: 1.2;
+  transition: 0.15s ease;
+}
+
+.skills-chips li:hover{
+  border-color: var(--accent);
+  background: rgba(96,165,250,.12);
+}/* ===== Responsive layout upgrades (desktop + phone friendly) ===== */
+
+/* Wider container on desktop */
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 88px 24px 60px;
+}
+
+/* Case studies: comfortable spacing */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.project{
+  height: fit-content;
+}
+
+/* About layout */
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  margin-top: 18px;
+  align-items: start;
+}
+
+#about .card{
+  height: fit-content;
+}
+
+/* Slightly tighter vertical rhythm */
+.section{ margin-top: 52px; }
+
+/* Improve readability */
+.project-desc{ max-width: 56ch; }
+
+/* ===== Mobile & tablet ===== */
+@media (max-width: 980px){
+  .container{ max-width: 960px; padding: 80px 20px 56px; }
+  .two-col{ grid-template-columns: 1fr 360px; }
+}
+
+/* ===== Phone friendly ===== */
+@media (max-width: 860px){
+  .container{ padding: 72px 16px 52px; }
+
+  .hero{
+    grid-template-columns: 1fr;
+  }
+
+  .grid{
+    grid-template-columns: 1fr;
+  }
+
+  .two-col{
+    grid-template-columns: 1fr;
+  }
+
+  /* Skills card spacing on mobile */
+  .skills-card{
+    margin-top: 12px;
+  }
+
+  /* Reel thumbnails should not overflow on phone */
+  .thumb-grid--reels{
+    grid-template-columns: repeat(2, 140px);
+  }
+}
+
+/* Very small screens */
+@media (max-width: 420px){
+  .thumb-grid--reels{
+    grid-template-columns: 1fr;
+  }
+  .thumb-grid--reels .thumb img{
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 9 / 16;
+  }
+}<!-- =========================
+     MADE EASY — Case Study (FINAL)
+     Paste this whole <article> inside <div class="grid"> in index.html
+     ========================= -->
+<article class="project">
+  <h3>MADE EASY — Creator-Led Enrollment Acquisition</h3>
+
+  <p class="project-desc">
+    Drove course enrollments by integrating contextual CTAs inside trusted YouTube education content (videos + live sessions) for GATE/engineering exam aspirants.
+  </p>
+
+  <ul class="tags">
+    <li>YouTube</li>
+    <li>Education Creators</li>
+    <li>Creator Performance</li>
+    <li>ROI Tracking</li>
+  </ul>
+
+  <details class="case-accordion">
+    <summary class="case-summary-btn">View portfolio</summary>
+
+    <div class="case-content">
+
+      <h4 class="case-heading">Objective</h4>
+      <p class="case-summary">
+        Acquire high-intent aspirants for MADE EASY programs using creator authority instead of relying only on paid ads.
+      </p>
+
+      <h4 class="case-heading">My Role</h4>
+      <ul class="campaign-stats">
+        <li>Identified and onboarded relevant engineering education YouTube creators</li>
+        <li>Negotiated integrations inside teaching videos and live sessions</li>
+        <li>Placed contextual CTAs for upcoming batches / course pages</li>
+        <li>Tracked cost vs performance and consolidated reporting</li>
+      </ul>
+
+      <h4 class="case-heading">Top Performing Creators</h4>
+      <ul class="campaign-stats">
+        <li>Sonu Yadav</li>
+        <li>Grow With IITians</li>
+        <li>Arpit Yadav (Live)</li>
+      </ul>
+
+      <h4 class="case-heading">Campaign Performance</h4>
+      <ul class="campaign-stats">
+        <li>Total Views: 19,138</li>
+        <li>Total Spend: ₹16,900</li>
+        <li>Overall CPV: ₹0.88</li>
+        <li>Total Likes: 791</li>
+        <li>Total Comments: 485</li>
+        <li>Revenue Impact: ₹50,000 spend → ₹1.4L business (~3x ROI)</li>
+      </ul>
+
+      <h4 class="case-heading">Creator Integrations (Proof)</h4>
+      <div class="yt-grid">
+
+        <!-- 1) Sonu Yadav -->
+        <a class="yt-card" href="https://youtu.be/0xK2bbY3Kgs?si=UWf7c12SXKVAf4Mm" target="_blank" rel="noreferrer">
+          <img src="https://img.youtube.com/vi/0xK2bbY3Kgs/maxresdefault.jpg" alt="Sonu Yadav Integration">
+          <span><strong>Sonu Yadav</strong> — YouTube lecture integration</span>
+        </a>
+
+        <!-- 2) Grow With IITians -->
+        <a class="yt-card" href="https://youtu.be/D5RLZboYPZA?si=GzDqV4akxoPJiYy2" target="_blank" rel="noreferrer">
+          <img src="https://img.youtube.com/vi/D5RLZboYPZA/maxresdefault.jpg" alt="Grow With IITians Integration">
+          <span><strong>Grow With IITians</strong> — contextual promotion</span>
+        </a>
+
+        <!-- 3) Arpit Yadav (Live) -->
+        <a class="yt-card" href="https://www.youtube.com/live/lJ3BEN8al18?si=3UShCfAF8-U3mwkg" target="_blank" rel="noreferrer">
+          <img src="https://img.youtube.com/vi/lJ3BEN8al18/maxresdefault.jpg" alt="Arpit Yadav Live Session">
+          <span><strong>Arpit Yadav</strong> — live session promotion</span>
+        </a>
+
+      </div>
+
+      <h4 class="case-heading">Strategic Takeaway</h4>
+      <p class="case-summary">
+        Educational creators function as authority figures. When course CTAs appear contextually inside learning content,
+        they behave more like mentorship recommendations than ads — improving conversion quality and measurable ROI.
+      </p>
+
+    </div>
+  </details>
+</article>/* ===== Make YouTube thumbnail cards smaller (compact) ===== */
+.yt-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 260px); /* card width */
+  gap: 16px;
+  justify-content: start; /* don't stretch */
+  margin-top: 14px;
+}
+
+.yt-card img{
+  width: 260px;
+  height: 146px; /* ~16:9 */
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Tablet */
+@media (max-width: 980px){
+  .yt-grid{
+    grid-template-columns: repeat(2, 240px);
+  }
+  .yt-card img{
+    width: 240px;
+    height: 135px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px){
+  .yt-grid{
+    grid-template-columns: 1fr;
+  }
+  .yt-card img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+}/* ===== Hero photo beside name ===== */
+
+.hero-heading{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.profile-photo img{
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+}
+
+@media (max-width: 600px){
+  .profile-photo img{
+    width: 95px;
+    height: 95px;
+  }
+}
+
+ .profile-photo img{
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 22px 60px rgba(0,0,0,.55);
+}/* =========================
+   PREMIUM UI UPGRADE PACK
+   Paste at end of styles.css
+   ========================= */
+
+/* Better palette + depth */
+:root{
+  --bg:#070a12;                 /* deeper black */
+  --card: rgba(17, 24, 39, .62);
+  --card2: rgba(17, 24, 39, .42);
+  --text:#eef2ff;
+  --muted: rgba(226, 232, 240, .70);
+  --line: rgba(255,255,255,.10);
+  --line2: rgba(255,255,255,.06);
+  --accent:#6ea8ff;
+  --accent2:#a78bfa;
+  --shadow: 0 18px 50px rgba(0,0,0,.55);
+  --shadow2: 0 10px 30px rgba(0,0,0,.35);
+}
+
+html, body{
+  background-color: var(--bg);
+}
+
+body{
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  letter-spacing: -0.01em;
+
+  /* richer, premium background */
+  background-image:
+    radial-gradient(900px 520px at 15% -10%, rgba(110,168,255,.18), transparent 60%),
+    radial-gradient(800px 460px at 90% 10%, rgba(167,139,250,.14), transparent 62%),
+    radial-gradient(900px 540px at 50% 110%, rgba(96,165,250,.10), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Selection polish */
+::selection{
+  background: rgba(110,168,255,.25);
+}
+
+/* Container slightly wider + more breathing */
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 92px 24px 64px;
+}
+
+/* Header: cleaner glass */
+.site-header{
+  background: rgba(7,10,18,.62);
+  border-bottom: 1px solid var(--line2);
+  backdrop-filter: blur(14px);
+}
+
+/* Logo: more premium badge */
+.logo{
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(110,168,255,.20), rgba(167,139,250,.10));
+  border: 1px solid var(--line2);
+}
+
+/* Nav hover underline */
+.nav a{
+  position: relative;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0; bottom:-8px;
+  width:0%;
+  height:2px;
+  background: rgba(110,168,255,.65);
+  transition: width .18s ease;
+}
+.nav a:hover::after{ width:100%; }
+
+/* Typography: tighter, more premium */
+h1{
+  font-size: 54px;
+  letter-spacing: -0.03em;
+}
+.subtitle{
+  color: var(--muted);
+  font-size: 18px;
+  max-width: 60ch;
+}
+.meta{
+  color: rgba(226,232,240,.62);
+}
+
+/* Hero layout: a bit more “landing page” */
+.hero{
+  gap: 30px;
+  align-items: start;
+}
+.hero-intro{
+  padding-top: 4px;
+}
+
+/* Cards: glass + shadow + hover */
+.card{
+  background: linear-gradient(180deg, rgba(17,24,39,.70), rgba(17,24,39,.46));
+  border: 1px solid var(--line2);
+  box-shadow: var(--shadow2);
+  border-radius: 18px;
+}
+.card:hover{
+  border-color: rgba(110,168,255,.22);
+}
+
+/* Project cards: premium hover lift */
+.project{
+  background: linear-gradient(180deg, rgba(17,24,39,.55), rgba(17,24,39,.35));
+  border: 1px solid var(--line2);
+  box-shadow: 0 10px 26px rgba(0,0,0,.25);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.project:hover{
+  transform: translateY(-4px);
+  border-color: rgba(110,168,255,.24);
+  box-shadow: 0 18px 44px rgba(0,0,0,.38);
+}
+
+/* Tags: cleaner chips */
+.tags li{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+
+/* Buttons: gradient + subtle shine */
+.button{
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(135deg, rgba(110,168,255,1), rgba(110,168,255,.78));
+  box-shadow: 0 12px 30px rgba(110,168,255,.20);
+  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+}
+.button:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(110,168,255,.24);
+  filter: brightness(1.02);
+}
+.button:active{
+  transform: translateY(0px);
+}
+.button.secondary{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: none;
+}
+.button.secondary:hover{
+  border-color: rgba(110,168,255,.22);
+  background: rgba(255,255,255,.06);
+}
+
+/* Accordion: nicer control */
+.case-summary-btn{
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.05);
+  border-radius: 12px;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+.case-summary-btn:hover{
+  background: rgba(255,255,255,.07);
+  border-color: rgba(110,168,255,.22);
+  transform: translateY(-1px);
+}
+
+/* Skills chips hover */
+.skills-chips li{
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+}
+.skills-chips li:hover{
+  border-color: rgba(110,168,255,.35);
+  background: rgba(110,168,255,.10);
+}
+
+/* YouTube cards polish (if you’re using yt-grid) */
+.yt-card img{
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.yt-card:hover img{
+  transform: translateY(-3px);
+}
+
+/* Smooth section rhythm */
+.section{ margin-top: 54px; }
+
+/* Mobile typography refinements */
+@media (max-width: 860px){
+  h1{ font-size: 40px; }
+  .container{ padding: 78px 16px 54px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; }
+}
