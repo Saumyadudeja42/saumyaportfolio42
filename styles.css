@@ -805,23 +805,27 @@ h1{
 @media (prefers-reduced-motion: reduce){
   *{ transition: none !important; }
 
-}/* ===== Mobile: make YouTube thumbnails smaller + centered ===== */
+/* =========================
+   FORCE SMALL MOBILE THUMBNAILS
+   ========================= */
+
 @media (max-width: 600px){
+
   .yt-grid{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
   }
 
   .yt-card img{
-    width: 85%;
-    max-width: 320px;
-    height: auto;
-    aspect-ratio: 16 / 9;
+    width: 75% !important;
+    max-width: 260px !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
   }
 
   .yt-card span{
-    text-align: center;
+    text-align: center !important;
   }
 }
